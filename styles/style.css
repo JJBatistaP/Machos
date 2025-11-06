@@ -1,0 +1,155 @@
+/* 🌑 Fondo predeterminado oscuro animado */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(270deg, #1a1a1a, #202020, #252525);
+  background-size: 400% 400%;
+  animation: smoothShift 12s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  transition: background 2s ease;
+  overflow: hidden;
+}
+
+@keyframes smoothShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 📦 Contenedor principal */
+.container {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+  
+}
+
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #00e6ff, #ff00d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+button {
+  background: linear-gradient(90deg, #ff00cc, #00ccff);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* 🎏 Bandera ondeante realista */
+body.flag-active {
+  background: none;
+  overflow: hidden;
+}
+
+body.flag-active::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120vw;
+  height: 120vh;
+  background: repeating-linear-gradient(
+    to bottom,
+    #e40303 0%,
+    #e40303 16.6%,
+    #ff8c00 16.6%,
+    #ff8c00 33.2%,
+    #ffed00 33.2%,
+    #ffed00 49.8%,
+    #008026 49.8%,
+    #008026 66.4%,
+    #004dff 66.4%,
+    #004dff 83%,
+    #750787 83%,
+    #750787 100%
+  );
+  background-size: 100% 100%;
+  animation: waveFlag 6s ease-in-out infinite;
+  filter: brightness(0.95) contrast(1.05) saturate(1.2);
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* 🌊 Ondas más naturales */
+@keyframes waveFlag {
+  0%   { transform: translateX(-2%) skewY(1deg); }
+  25%  { transform: translateX(2%) skewY(-1.5deg); }
+  50%  { transform: translateX(4%) skewY(1deg); }
+  75%  { transform: translateX(2%) skewY(-1deg); }
+  100% { transform: translateX(-2%) skewY(1deg); }
+}
+
+/* 💪 Fondo varonil alternativo */
+/* 💪 Fondo varonil alternativo animado */
+body.macho {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #2a2a2a, #3a3a3a, #4a4a4a, #2a2a2a, #1a1a1a);
+  background-size: 600% 600%;
+  animation: machoWave 12s ease-in-out infinite;
+  filter: brightness(0.85) contrast(1.3) saturate(1.1);
+  overflow: hidden;
+}
+
+/* 🌊 Onda metálica varonil */
+@keyframes machoWave {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 50% 50%; }
+  50%  { background-position: 100% 50%; }
+  75%  { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+body.macho .container {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+/* Evita bordes blancos */
+body::before {
+  pointer-events: none;
+}
+

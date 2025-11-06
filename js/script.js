@@ -39,7 +39,7 @@ imageContainer.style.zIndex = "999"; // Asegura que esté encima de todo
     return;
   }
 
-  if (nombre === "randy" || nombre === "michel" || nombre ==="xavier"|| nombre ==="ruben" || nombre ==="ruben") {
+  if (nombre === "randy" || nombre === "michel" || nombre ==="xavier"|| nombre ==="ruben" || nombre ==="rubén") {
     // 🌈 Modo bandera
     document.body.classList.remove("macho");
     document.body.classList.remove("macho", "zorro");

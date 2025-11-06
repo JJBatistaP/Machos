@@ -26,6 +26,7 @@ imageContainer.style.top = "20px"; // Puedes ajustar este valor si quieres más 
 imageContainer.style.left = "50%";
 imageContainer.style.transform = "translateX(-50%)";
 imageContainer.style.zIndex = "999"; // Asegura que esté encima de todo
+showImage("img/exacerbate.png");
 
 
 
@@ -41,8 +42,7 @@ imageContainer.style.zIndex = "999"; // Asegura que esté encima de todo
 
   if (nombre === "randy" || nombre === "michel" || nombre ==="xavier"|| nombre ==="ruben" || nombre ==="rubén") {
     // 🌈 Modo bandera
-    document.body.classList.remove("macho");
-    document.body.classList.remove("macho", "zorro");
+    document.body.classList.remove("exacerbate","macho", "zorra");
     document.body.classList.add("flag-active");
     result.textContent = "🌈 Lo suponía...";
     result.style.color = "#ffffff";
@@ -52,6 +52,7 @@ imageContainer.style.zIndex = "999"; // Asegura que esté encima de todo
 result.textContent = "🦊 Zorra Mayor";
 result.style.color = "#ff4d6d"; // Puedes usar el mismo color que los otros o dejarlo blanco
 document.body.classList.remove("flag-active", "macho");
+document.body.classList.remove("exacerbate","macho", "Caca");
 document.body.classList.add("zorro");
 showImage("img/zorra.jpg");
 animateText(result);
@@ -60,7 +61,8 @@ animateText(result);
     document.body.classList.remove("flag-active");
     document.body.classList.add("macho");
     result.textContent = "💪 Eres un macho lomo plateado";
-    document.body.classList.remove("flag-active", "zorro");
+    document.body.classList.remove("flag-active", "zorra");
+    document.body.classList.remove("exacerbate","macho", "zorra");
     result.style.color = "#00ffff";
     showImage("img/varonil.jpg");
     animateText(result);

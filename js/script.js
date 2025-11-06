@@ -7,70 +7,79 @@ document.addEventListener("DOMContentLoaded", () => {
   imageContainer.classList.add("dynamic-image");
   document.body.appendChild(imageContainer);
 
-
-
-
   const img = document.createElement("img");
   img.style.display = "none";
   img.style.maxWidth = "250px";
   img.style.borderRadius = "15px";
   img.style.boxShadow = "0 0 20px rgba(0,0,0,0.5)";
   img.style.transition = "opacity 1s ease";
-  
   imageContainer.appendChild(img);
 
+  imageContainer.style.position = "fixed";
+  imageContainer.style.top = "20px";
+  imageContainer.style.left = "50%";
+  imageContainer.style.transform = "translateX(-50%)";
+  imageContainer.style.zIndex = "999";
 
-imageContainer.style.position = "fixed";
-imageContainer.style.top = "20px"; 
-imageContainer.style.left = "50%";
-imageContainer.style.transform = "translateX(-50%)";
-imageContainer.style.zIndex = "999"; 
-showImage("img/exacerbate.png");
+  const video = document.getElementById("background-video");
 
+  button.addEventListener("click", () => {
+    const nombre = input.value.trim().toLowerCase();
 
+    document.body.classList.remove("flag-active", "macho", "zorro", "exacerbate");
 
- button.addEventListener("click", () => {
-  const nombre = input.value.trim().toLowerCase();
+    if (!nombre) {
+      result.textContent = "Por favor, escribe un nombre.";
+      result.style.color = "#ccc";
+      hideImage();
+      hideVideo();
+      return;
+    }
 
-
-  document.body.classList.remove("flag-active", "macho", "zorro", "exacerbate");
-
-  if (!nombre) {
-    result.textContent = "Por favor, escribe un nombre.";
-    result.style.color = "#ccc";
-    hideImage();
-    return;
-  }
-
-  if (["randy", "michel", "xavier", "ruben", "rubén"].includes(nombre)) {
-    document.body.classList.add("flag-active");
-    result.textContent = "🌈 Lo suponía...";
-    result.style.color = "#ffffff";
-    showImage("img/Caca.webp");
-    animateText(result);
-  } else if (nombre === "camila") {
-    document.body.classList.add("zorro");
-    result.textContent = "🦊 Zorra Mayor";
-    result.style.color = "#ff4d6d";
-    showImage("img/zorra.jpg");
-    animateText(result);
-  } else if (nombre === "jennifer" || nombre === "feniyer") {
-    document.body.classList.add("exacerbate");
-    result.textContent = "😤 Controla tu histeria, enana";
-    result.style.color = "#ffcc00";
-    showImage("img/enana.webp");
-    animateText(result);
-  } else {
-    document.body.classList.add("macho");
-    result.textContent = "💪 Eres un macho lomo plateado";
-    result.style.color = "#00ffff";
-    showImage("img/varonil.jpg");
-    animateText(result);
-  }
-});
-
-
-
+    if ([, "michel", "xavier", "ruben", "rubén"].includes(nombre)) {
+      document.body.classList.add("flag-active");
+      result.textContent = "🌈 Lo suponía...";
+      result.style.color = "#ffffff";
+      showImage("img/Caca.webp");
+      animateText(result);
+      hideVideo();
+    } else if (nombre === "camila") {
+      document.body.classList.add("zorro");
+      result.textContent = "🦊 Zorra Mayor";
+      result.style.color = "#ff4d6d";
+      showImage("img/zorra.jpg");
+      animateText(result);
+      hideVideo();
+    } else if (nombre === "jennifer" || nombre === "feniyer") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "😤 Controla tu histeria, enana";
+      result.style.color = "#ffcc00";
+      showImage("img/enana.webp");
+      animateText(result);
+      hideVideo();
+    } else if (nombre === "randy") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "hmmmm migajas";
+      result.style.color = "#ee5ea6ff";
+      showImage("img/migajas.jpeg");
+      animateText(result);
+      hideVideo();
+    } else if (nombre === "robert") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "Como tan muchacho";
+      result.style.color = "#ee5ea6ff";
+      showImage("img/bensom.jpg");
+      animateText(result);
+      showBensomVideo();
+    } else {
+      document.body.classList.add("macho");
+      result.textContent = "💪 Eres un macho lomo plateado";
+      result.style.color = "#00ffff";
+      showImage("img/varonil.jpg");
+      animateText(result);
+      hideVideo();
+    }
+  });
 
   function animateText(element) {
     element.style.opacity = 0;
@@ -93,5 +102,25 @@ showImage("img/exacerbate.png");
     setTimeout(() => {
       img.style.display = "none";
     }, 500);
+  }
+
+  function showBensomVideo() {
+    if (video) {
+      video.src = "video/bensom.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
+
+  function hideVideo() {
+    if (video) {
+      video.src = "video/fondo.mp4";
+      video.muted = true;
+      video.style.opacity = "0";
+      video.load();
+      video.play();
+    }
   }
 });

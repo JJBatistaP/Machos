@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("checkButton");
   const result = document.getElementById("result");
 
-  // Creamos el contenedor de imagen dinámica
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dynamic-image");
   document.body.appendChild(imageContainer);
@@ -20,54 +19,57 @@ document.addEventListener("DOMContentLoaded", () => {
   
   imageContainer.appendChild(img);
 
-  // Centramos la imagen debajo del contenedor principal
+
 imageContainer.style.position = "fixed";
-imageContainer.style.top = "20px"; // Puedes ajustar este valor si quieres más o menos separación del borde superior
+imageContainer.style.top = "20px"; 
 imageContainer.style.left = "50%";
 imageContainer.style.transform = "translateX(-50%)";
-imageContainer.style.zIndex = "999"; // Asegura que esté encima de todo
+imageContainer.style.zIndex = "999"; 
 showImage("img/exacerbate.png");
 
 
 
-  button.addEventListener("click", () => {
+ button.addEventListener("click", () => {
   const nombre = input.value.trim().toLowerCase();
+
+
+  document.body.classList.remove("flag-active", "macho", "zorro", "exacerbate");
 
   if (!nombre) {
     result.textContent = "Por favor, escribe un nombre.";
     result.style.color = "#ccc";
-    hideImage(); // ✅ Solo ocultamos si no hay nombre
+    hideImage();
     return;
   }
 
-  if (nombre === "randy" || nombre === "michel" || nombre ==="xavier"|| nombre ==="ruben" || nombre ==="rubén") {
-    // 🌈 Modo bandera
-    document.body.classList.remove("exacerbate","macho", "zorra");
+  if (["randy", "michel", "xavier", "ruben", "rubén"].includes(nombre)) {
     document.body.classList.add("flag-active");
     result.textContent = "🌈 Lo suponía...";
     result.style.color = "#ffffff";
     showImage("img/Caca.webp");
     animateText(result);
   } else if (nombre === "camila") {
-result.textContent = "🦊 Zorra Mayor";
-result.style.color = "#ff4d6d"; // Puedes usar el mismo color que los otros o dejarlo blanco
-document.body.classList.remove("flag-active", "macho");
-document.body.classList.remove("exacerbate","macho", "Caca");
-document.body.classList.add("zorro");
-showImage("img/zorra.jpg");
-animateText(result);
+    document.body.classList.add("zorro");
+    result.textContent = "🦊 Zorra Mayor";
+    result.style.color = "#ff4d6d";
+    showImage("img/zorra.jpg");
+    animateText(result);
+  } else if (nombre === "jennifer" || nombre === "feniyer") {
+    document.body.classList.add("exacerbate");
+    result.textContent = "😤 Controla tu histeria, enana";
+    result.style.color = "#ffcc00";
+    showImage("img/enana.webp");
+    animateText(result);
   } else {
-    // 💪 Modo macho alfa
-    document.body.classList.remove("flag-active");
     document.body.classList.add("macho");
     result.textContent = "💪 Eres un macho lomo plateado";
-    document.body.classList.remove("flag-active", "zorra");
-    document.body.classList.remove("exacerbate","macho", "zorra");
     result.style.color = "#00ffff";
     showImage("img/varonil.jpg");
     animateText(result);
   }
 });
+
+
 
 
   function animateText(element) {

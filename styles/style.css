@@ -189,7 +189,7 @@ body.zorro .container {
   background: rgba(50, 0, 0, 0.7);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
-/* 🍷 Fondo modo exacerbate (feniyer) */
+
 body.exacerbate {
   background: linear-gradient(135deg, #3b0000, #5a0a0a, #7a1a1a, #9a2a2a);
   background-size: 600% 600%;
@@ -217,7 +217,7 @@ body.exacerbate .container {
   min-height: 100%;
   object-fit: cover;
   z-index: -1;
-  opacity: 0; /* Oculto por defecto */
+  opacity: 0; 
   transition: opacity 1s ease;
 }
 

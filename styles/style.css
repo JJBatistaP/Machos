@@ -152,4 +152,25 @@ body.macho .container {
 body::before {
   pointer-events: none;
 }
+/* 🦊 Fondo modo zorro */
+body.zorro {
+  background: linear-gradient(120deg, #2b0000, #4a0a0a, #6b1a1a, #8c2a2a);
+  background-size: 500% 500%;
+  animation: zorroShift 10s ease-in-out infinite;
+  filter: brightness(0.9) contrast(1.3);
+  overflow: hidden;
+}
+
+@keyframes zorroShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.zorro .container {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(50, 0, 0, 0.7);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
 

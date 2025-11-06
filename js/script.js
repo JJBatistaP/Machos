@@ -42,16 +42,25 @@ imageContainer.style.zIndex = "999"; // Asegura que esté encima de todo
   if (nombre === "randy" || nombre === "michel" || nombre ==="xavier") {
     // 🌈 Modo bandera
     document.body.classList.remove("macho");
+    document.body.classList.remove("macho", "zorro");
     document.body.classList.add("flag-active");
     result.textContent = "🌈 Lo suponía...";
     result.style.color = "#ffffff";
     showImage("img/Caca.webp");
     animateText(result);
+  } else if (nombre === "camila") {
+result.textContent = "🦊 Zorra Mayor";
+result.style.color = "#ff4d6d"; // Puedes usar el mismo color que los otros o dejarlo blanco
+document.body.classList.remove("flag-active", "macho");
+document.body.classList.add("zorro");
+showImage("img/zorra.jpg");
+animateText(result);
   } else {
     // 💪 Modo macho alfa
     document.body.classList.remove("flag-active");
     document.body.classList.add("macho");
     result.textContent = "💪 Eres un macho lomo plateado";
+    document.body.classList.remove("flag-active", "zorro");
     result.style.color = "#00ffff";
     showImage("img/varonil.jpg");
     animateText(result);

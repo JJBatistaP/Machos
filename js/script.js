@@ -36,13 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if ([, "michel"].includes(nombre)) {
+    if (["Serguey", "Serguei"].includes(nombre)) {
       document.body.classList.add("flag-active");
       result.textContent = "🌈 Lo suponía...";
       result.style.color = "#ffffff";
       showImage("img/Caca.webp");
       animateText(result);
       hideVideo();
+      return;
     } else if (nombre === "camila") {
       document.body.classList.add("zorro");
       result.textContent = "🦊 Zorra Mayor";
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/enana.webp");
       animateText(result);
       hideVideo();
+      return;
     } else if (nombre === "randy") {
       document.body.classList.add("exacerbate");
       result.textContent = "hmmmm migajas";
@@ -65,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       animateText(result);
       hideVideo();
       showRandyVideo();
+      return;
     } else if (nombre === "robert") {
       document.body.classList.add("exacerbate");
       result.textContent = "Como tan muchacho";
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/bensom.jpg");
       animateText(result);
       showBensomVideo();
-
+      return;
     } else if (nombre === "gabriel") {
       document.body.classList.add("exacerbate");
       result.textContent = "Brazo de 35";
@@ -80,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/gabriel.gif");
       animateText(result);
       showGabrielVideo();
-
+      return;
       } else if (nombre === "pepe" || nombre === "enrique") {
       document.body.classList.add("exacerbate");
       result.textContent = "Tu te botas muchacho";
@@ -88,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/pepe.webp");
       animateText(result);
       showPepeVideo();
+      return;
       } else if (nombre === "rupe" || nombre === "ruben" || nombre === "ruben") {
       document.body.classList.add("exacerbate");
       result.textContent = "Asere pero una de 15..";
@@ -95,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/rupe.jpeg");
       animateText(result);
       showRupeVideo();
+      return;
       } else if (nombre === "xavier") {
       document.body.classList.add("exacerbate");
       result.textContent = "Basadísimo";
@@ -102,6 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/xavier.png");
       animateText(result);
       showXavierVideo();
+      return;
+      } else if (nombre === "michel") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "¿¿Macho??";
+      result.style.color = "#00eeffff";
+      showImage("img/michel.jpeg");
+      animateText(result);
+      showMichelVideo();
+      return;
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -184,6 +198,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function showRandyVideo() {
     if (video) {
       video.src = "video/randy.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
+
+  function showMichelVideo() {
+    if (video) {
+      video.src = "video/michel.mp4";
       video.muted = false;
       video.style.opacity = "1";
       video.load();

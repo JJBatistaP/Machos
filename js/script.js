@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("nameInput");
   const button = document.getElementById("checkButton");
   const result = document.getElementById("result");
-  const video = document.getElementById("background-video");
-  const arbol = document.getElementById("exacerbate"); 
 
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dynamic-image");
@@ -23,14 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
   imageContainer.style.transform = "translateX(-50%)";
   imageContainer.style.zIndex = "999";
 
+  const video = document.getElementById("background-video");
+
   button.addEventListener("click", () => {
     const nombre = input.value.trim().toLowerCase();
 
     document.body.classList.remove("flag-active", "macho", "zorro", "exacerbate");
-
-    if (arbol) {
-      arbol.style.opacity = "0";
-    }
 
     if (!nombre) {
       result.textContent = "Por favor, escribe un nombre.";
@@ -40,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (["michel"].includes(nombre)) {
+    if ([, "michel", "xavier", "ruben", "rubén"].includes(nombre)) {
       document.body.classList.add("flag-active");
       result.textContent = "🌈 Lo suponía...";
       result.style.color = "#ffffff";
@@ -67,42 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
       result.style.color = "#ee5ea6ff";
       showImage("img/migajas.jpeg");
       animateText(result);
-      transitionVideo("video/randy.mp4");
+      hideVideo();
     } else if (nombre === "robert") {
       document.body.classList.add("exacerbate");
       result.textContent = "Como tan muchacho";
-      result.style.color = "#fa0000bd";
+      result.style.color = "#ee5ea6ff";
       showImage("img/bensom.jpg");
       animateText(result);
-      transitionVideo("video/bensom.mp4");
+      showBensomVideo();
     } else if (nombre === "gabriel") {
       document.body.classList.add("exacerbate");
       result.textContent = "Brazo de 35";
-      result.style.color = "#a7f31bbd";
-      showImage("img/gabriel.webp");
+      result.style.color = "#7bff00ff";
+      showImage("img/gabriel.gif");
       animateText(result);
-      transitionVideo("video/gabriel.mp4");
-    } else if (nombre === "xavier") {
-      document.body.classList.add("exacerbate");
-      result.textContent = "Basadísimo";
-      result.style.color = "#0931e4bd";
-      showImage("img/xavier.png");
-      animateText(result);
-      transitionVideo("video/xavier.mp4");
-    } else if (nombre === "enrique" || nombre === "pepe") {
-      document.body.classList.add("exacerbate");
-      result.textContent = "Tu te botas";
-      result.style.color = "#00ff88bd";
-      showImage("img/pepe.webp");
-      animateText(result);
-      transitionVideo("video/pepe.mp4");
-    } else if (nombre === "rupe" || nombre === "ruben" || nombre === "rubén") {
-      document.body.classList.add("exacerbate");
-      result.textContent = "Pero una de 15.....";
-      result.style.color = "#5100e9bd";
-      showImage("img/rupe.jpeg");
-      animateText(result);
-      transitionVideo("video/rupe.mp4");
+      showGabrielVideo();
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -131,35 +106,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function hideImage() {
     img.style.opacity = 0;
-    setTimeout(() => (img.style.display = "none"), 500);
+    setTimeout(() => {
+      img.style.display = "none";
+    }, 500);
   }
 
-  function transitionVideo(src) {
+  function showBensomVideo() {
     if (video) {
-      video.style.transition = "opacity 0.8s ease";
-      video.style.opacity = "0";
-      setTimeout(() => {
-        video.pause();
-        video.src = src;
-        video.muted = false;
-        video.load();
-        video.play();
-        video.style.opacity = "1";
-      }, 800);
+      video.src = "video/bensom.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
+    function showGabrielVideo() {
+    if (video) {
+      video.src = "video/gabriel.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
     }
   }
 
   function hideVideo() {
     if (video) {
-      video.style.transition = "opacity 0.8s ease";
+      video.src = "video/fondo.mp4";
+      video.muted = true;
       video.style.opacity = "0";
-      setTimeout(() => {
-        video.pause();
-        video.src = "video/fondo.mp4";
-        video.muted = true;
-        video.load();
-        video.play();
-      }, 800);
+      video.load();
+      video.play();
     }
   }
 });

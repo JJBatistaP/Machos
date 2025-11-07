@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if ([, "michel", "xavier", "ruben", "rubén"].includes(nombre)) {
+    if ([, "michel"].includes(nombre)) {
       document.body.classList.add("flag-active");
       result.textContent = "🌈 Lo suponía...";
       result.style.color = "#ffffff";
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/migajas.jpeg");
       animateText(result);
       hideVideo();
+      showRandyVideo();
     } else if (nombre === "robert") {
       document.body.classList.add("exacerbate");
       result.textContent = "Como tan muchacho";
@@ -87,6 +88,20 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/pepe.webp");
       animateText(result);
       showPepeVideo();
+      } else if (nombre === "rupe" || nombre === "ruben" || nombre === "ruben") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "Asere pero una de 15..";
+      result.style.color = "#ff11dfff";
+      showImage("img/rupe.jpeg");
+      animateText(result);
+      showRupeVideo();
+      } else if (nombre === "xavier") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "Basadísimo";
+      result.style.color = "#ffffffff";
+      showImage("img/xavier.mp4");
+      animateText(result);
+      showXavierVideo();
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -148,7 +163,33 @@ document.addEventListener("DOMContentLoaded", () => {
       video.play();
     }
   }
-
+    function showRupeVideo() {
+    if (video) {
+      video.src = "video/rupe.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
+   function showXavierVideo() {
+    if (video) {
+      video.src = "video/xavier.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
+function showRandyVideo() {
+    if (video) {
+      video.src = "video/randy.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
 
   function hideVideo() {
     if (video) {

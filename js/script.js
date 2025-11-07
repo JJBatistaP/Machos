@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("exacerbate");
       result.textContent = "Basadísimo";
       result.style.color = "#ffffffff";
-      showImage("img/xavier.mp4");
+      showImage("img/xavier.png");
       animateText(result);
       showXavierVideo();
     } else {

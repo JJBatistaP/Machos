@@ -80,6 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
       animateText(result);
       showGabrielVideo();
 
+      } else if (nombre === "pepe" || nombre === "enrique") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "Tu te botas muchacho";
+      result.style.color = "#01ee21ff";
+      showImage("img/pepe.webp");
+      animateText(result);
+      showPepeVideo();
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -126,6 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function showGabrielVideo() {
     if (video) {
       video.src = "video/gabriel.mp4";
+      video.muted = false;
+      video.style.opacity = "1";
+      video.load();
+      video.play();
+    }
+  }
+  function showPepeVideo() {
+    if (video) {
+      video.src = "video/pepe.mp4";
       video.muted = false;
       video.style.opacity = "1";
       video.load();

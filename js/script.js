@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/bensom.jpg");
       animateText(result);
       showBensomVideo();
+
     } else if (nombre === "gabriel") {
       document.body.classList.add("exacerbate");
       result.textContent = "Brazo de 35";
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showImage("img/gabriel.gif");
       animateText(result);
       showGabrielVideo();
+
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -120,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       video.play();
     }
   }
+
     function showGabrielVideo() {
     if (video) {
       video.src = "video/gabriel.mp4";
@@ -129,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
       video.play();
     }
   }
+
 
   function hideVideo() {
     if (video) {

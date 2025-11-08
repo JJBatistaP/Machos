@@ -116,6 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
       animateText(result);
       showMichelVideo();
       return;
+      } else if (nombre === "figueiras" || nombre === "figue" || nombre === "alejandro") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "Métele recursividad a eso";
+      result.style.color = "#00ff0dff";
+      showImage("img/figue.jpeg");
+      animateText(result);
+      showFigueVideo();
+      return;
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -152,67 +160,58 @@ document.addEventListener("DOMContentLoaded", () => {
   function showBensomVideo() {
     if (video) {
       video.src = "video/bensom.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
   }
 
     function showGabrielVideo() {
     if (video) {
       video.src = "video/gabriel.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
   }
   function showPepeVideo() {
     if (video) {
       video.src = "video/pepe.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
   }
     function showRupeVideo() {
     if (video) {
       video.src = "video/rupe.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
   }
    function showXavierVideo() {
     if (video) {
       video.src = "video/xavier.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
   }
 function showRandyVideo() {
     if (video) {
       video.src = "video/randy.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
   }
 
   function showMichelVideo() {
     if (video) {
       video.src = "video/michel.mp4";
-      video.muted = false;
-      video.style.opacity = "1";
-      video.load();
-      video.play();
+      videoOption();
     }
+  }
+    function showFigueVideo() {
+    if (video) {
+      video.src = "video/figue.mp4";
+      videoOption();
+    }
+  }
+  function videoOption(){
+    video.muted = false;
+    video.style.opacity = "1";
+    video.load();
+    video.play();
   }
 
   function hideVideo() {

@@ -124,6 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
       animateText(result);
       showFigueVideo();
       return;
+      } else if (nombre === "botas" || nombre === "carlos" || nombre === "elbotas") {
+      document.body.classList.add("exacerbate");
+      result.textContent = "Es hora de botarse";
+      result.style.color = "#520625ff";
+      showImage("img/botas.webp");
+      animateText(result);
+      showBotasVideo();
+      return;
     } else {
       document.body.classList.add("macho");
       result.textContent = "💪 Eres un macho lomo plateado";
@@ -204,6 +212,12 @@ function showRandyVideo() {
     function showFigueVideo() {
     if (video) {
       video.src = "video/figue.mp4";
+      videoOption();
+    }
+  }
+      function showBotasVideo() {
+    if (video) {
+      video.src = "video/carlos.mp4";
       videoOption();
     }
   }
